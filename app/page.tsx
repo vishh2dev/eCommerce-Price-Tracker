@@ -1,3 +1,4 @@
+import Searchbar from '@/components/Searchbar'
 import Image from 'next/image'
 import React from 'react'
 
@@ -17,13 +18,25 @@ const Home = () => {
             />
           </p>
           <h1 className='head-text'>
-            Unleashing the power of
-            <span className='text-primary'>PriceTracker</span>
+            Unleashing the power of 
+            <span className='text-primary'> PriceTracker</span>
           </h1>
           <p className='mt-6'>
             Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.
           </p>
+          <Searchbar/>
         </div>
+        herocarousel
+      </div>
+    </section>
+    <section className='trending-section'>
+      <h2 className='section-text'>Trending</h2>
+      <div className='flex flex-wrap gap-x-8 gap-y-16 '>
+        {['Apple Iphone 15', 'BBok','Sneakers'].map
+        ((product) => (
+          <div>{product}</div>
+        ))
+        }
       </div>
     </section>
     </>
