@@ -1,5 +1,6 @@
 "use client"
 
+import { scrapeAndStoreProduct } from "@/lib/actions"
 import { FormEvent, useState } from "react"
 
 const Searchbar = () => {
@@ -23,7 +24,7 @@ const Searchbar = () => {
         return false
     }
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) =>{
+    const handleSubmit =async(event: FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
 
         const isValidLink = isValidProductUrl(searchPrompt)
@@ -37,6 +38,8 @@ const Searchbar = () => {
         }finally{
             setIsLoading(false)
         }
+
+        const product = await scrapeAndStoreProduct(searchPrompt)
     }
     return (
         <form className='flex flex-wrap gap-4 mt-12' onSubmit={handleSubmit}>
